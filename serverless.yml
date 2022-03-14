@@ -1,0 +1,18 @@
+service: quote-lambda
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+
+plugins:
+  - serverless-plugin-typescript
+  - serverless-offline
+
+functions:
+  getRandomQuote:
+    handler: handler.getRandomQuote
+    events:
+      - httpApi:
+          path: /api/v1/quotes/random
+          method: get
