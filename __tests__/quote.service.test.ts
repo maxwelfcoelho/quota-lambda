@@ -1,8 +1,8 @@
 import axios from 'axios';
 import { mocked } from 'ts-jest/utils'
 
-import { fetchRandomQuote } from '../services/quote.service';
-import { Quote } from '../types';
+import { getRandomQuote } from '../src/services/quote.service';
+import { Quote } from '../src/types';
 
 jest.mock('axios');
 const mockedAxios = mocked(axios, true)
@@ -21,7 +21,7 @@ it('Should return a random quote', async () => {
 
       mockedAxios.get.mockResolvedValue({data: expected});
 
-      const res = await fetchRandomQuote();
+      const res = await getRandomQuote();
 
       expect(res).toBe(expected);
 });

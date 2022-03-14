@@ -1,12 +1,10 @@
 import 'dotenv/config';
 import { Handler } from 'aws-lambda';
 
-import { fetchRandomQuote } from './services/quote.service';
+import { getRandomQuote } from './services/quote.service';
 
-console.log(process.env.URL);
-
-export const getRandomQuote: Handler = async (event: any) => {
-  const randomQuote = await fetchRandomQuote();
+export const getRandomQuoteHandler: Handler = async (event: any) => {
+  const randomQuote = await getRandomQuote();
 
   return {
     statusCode: 200,
