@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { Quote } from '../types';
 
-const URL = 'https://api.quotable.io/random';
+const URL = process.env.URL || '';
 
 export async function fetchRandomQuote(): Promise<Quote> {
     const response = await axios.get(URL);
