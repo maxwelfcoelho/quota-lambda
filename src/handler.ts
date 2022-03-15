@@ -1,12 +1,12 @@
 import 'dotenv/config';
 import { Handler } from 'aws-lambda';
 
-import { getRandomQuote } from './services/quote.service';
+import { getRandomQuoteWorker } from './worker';
 
 export const getRandomQuoteHandler: Handler = async (event: any) => {
   
     try {
-        const randomQuote = await getRandomQuote();
+        const randomQuote = await getRandomQuoteWorker();
 
         return {
             statusCode: 200,
