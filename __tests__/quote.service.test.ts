@@ -1,11 +1,11 @@
 import axios from 'axios';
-import { mocked } from 'ts-jest/utils'
+import { mocked } from 'ts-jest/utils';
 
 import { getRandomQuote } from '../src/services/quote.service';
 import { Quote } from '../src/types';
 
 jest.mock('axios');
-const mockedAxios = mocked(axios, true)
+const mockedAxios = mocked(axios, true);
 
 it('Should return a random quote', async () => {
     const expected: Quote = {
@@ -17,11 +17,11 @@ it('Should return a random quote', async () => {
         length: 65,
         dateAdded: new Date('2020-12-08'),
         dateModified: new Date('2020-12-08')
-      };
+    };
 
-      mockedAxios.get.mockResolvedValue({data: expected});
+    mockedAxios.get.mockResolvedValue({data: expected});
 
-      const res = await getRandomQuote();
+    const res = await getRandomQuote();
 
-      expect(res).toBe(expected);
+    expect(res).toBe(expected);
 });
