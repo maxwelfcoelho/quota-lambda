@@ -1,7 +1,10 @@
-import axios from 'axios';
 import { fetchRandomQuote } from '../../integrations/quote';
 import { Quote } from '../types';
 
 export async function getRandomQuote(): Promise<Quote> {
-    return await fetchRandomQuote();
+    try {
+        return await fetchRandomQuote();
+    } catch(err: any) {
+        throw new Error(err.message);
+    }
 }

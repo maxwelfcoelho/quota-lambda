@@ -4,8 +4,12 @@ import { Quote } from '../src/types';
 const URL = process.env.URL || '';
 
 export async function fetchRandomQuote(): Promise<Quote> {
-    const response = await axios.get(URL);
-    const randomQuote = response.data;
+    try {
+        const response = await axios.get(URL);
+        const randomQuote = response.data;
 
-    return randomQuote;
+        return randomQuote;
+    } catch(err: any) {
+        throw new Error(err.message);
+    }
 }
