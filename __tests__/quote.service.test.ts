@@ -28,4 +28,13 @@ describe('Quote service', () => {
         expect(res).toBe(expected);
     });
 
+    it('Should throw an exception, if something goes wrong', async () => {
+        mockedAxios.get.mockRejectedValue(new Error('api failed'));
+
+        try {
+            await fetchRandomQuote();
+        } catch(err: any) {
+            expect(err.message).toBe('api failed');
+        }
+    });
 });
