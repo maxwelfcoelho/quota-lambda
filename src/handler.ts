@@ -22,7 +22,7 @@ export const getRandomQuoteHandler: Handler = async (event: any) => {
 
     } catch(err: any) {
         return {
-            statusCode: 424,
+            statusCode: 500,
             body: JSON.stringify(
                 {
                     message: err.message,
