@@ -1,4 +1,4 @@
-import { getRandomQuote } from './services/quote.service';
+import { getRandomQuote } from './services/quote/quote.service';
 import { Quote } from './types';
 
 export async function getRandomQuoteWorker(): Promise<Quote> {
