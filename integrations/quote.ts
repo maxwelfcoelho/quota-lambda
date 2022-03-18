@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { Quote } from '../src/types';
+import { Quote } from '../src/services/quote/interfaces/quote';
 
 const URL = process.env.URL || '';
 

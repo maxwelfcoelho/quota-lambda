@@ -2,7 +2,7 @@ import axios from 'axios';
 import { mocked } from 'ts-jest/utils';
 
 import { fetchRandomQuote } from '../integrations/quote';
-import { Quote } from '../src/types';
+import { Quote } from '../src/services/quote/interfaces/quote';
 
 jest.mock('axios');
 const mockedAxios = mocked(axios, true);
