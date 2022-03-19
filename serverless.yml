@@ -11,7 +11,7 @@ plugins:
 
 functions:
   getRandomQuote:
-    handler: handler.getRandomQuote
+    handler: handler.getRandomQuoteHandler
     events:
       - httpApi:
           path: /api/v1/quotes/random
